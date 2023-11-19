@@ -2,9 +2,35 @@
 Imports MySql.Data.MySqlClient
 Public Class Form3
     Dim ID As String = ""
+
+    Public Sub adminFullname()
+        If signin = "MSSQL" Then
+            MSconnection = New SqlConnection(MSconnectionString)
+            Dim query As String = "SELECT CONCAT(firstname, ' ', middlename, ' ', lastname) AS labelfullname FROM tbl_admin WHERE admin_id = @ID;"
+            Dim MScommand As New SqlCommand(query, MSconnection)
+            MScommand.Parameters.AddWithValue("@ID", adminID)
+
+            MSconnection.Open()
+            Dim labelfullname As String = MScommand.ExecuteScalar().ToString()
+            MSconnection.Close()
+            lblFullname.Text = labelfullname
+        ElseIf signin = "MYSQL" Then
+            MYconnection = New MySqlConnection(MYconnectionString)
+            Dim query As String = "SELECT CONCAT(firstname, ' ', middlename, ' ', lastname) AS labelfullname FROM tbl_admin WHERE admin_id = @ID;"
+            Dim MYcommand As New MySqlCommand(query, MYconnection)
+            MYcommand.Parameters.AddWithValue("@ID", adminID)
+
+            MYconnection.Open()
+            Dim labelfullname As String = MYcommand.ExecuteScalar().ToString()
+            MYconnection.Close()
+            lblFullname.Text = labelfullname
+        End If
+    End Sub
+
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MYloadData()
         MSloadData()
+        adminFullname()
 
         'Dim result As MsgBoxResult = msgbox_insert.Show()
 
@@ -18,6 +44,7 @@ Public Class Form3
             MSconnection = New SqlConnection(MSconnectionString)
 
             lblUser.Text = Username
+            lblUser_side_drawer.Text = Username
             Try
                 MSconnection.Open()
 
@@ -29,6 +56,7 @@ Public Class Form3
 
                 If MSreader.Read() Then
                     lblCreateAcc.Text = MSreader("formatted_datetime").ToString()
+                    lblCreateAcc_side_drawer.Text = MSreader("formatted_datetime").ToString()
                 End If
                 MessageBox.Show(MSreader("formatted_datetime").ToString())
                 MSconnection.Close()
@@ -41,6 +69,7 @@ Public Class Form3
         ElseIf signin = "MYSQL" Then
             MYconnection = New MySqlConnection(MYconnectionString)
 
+            lblUser_side_drawer.Text = Username
             lblUser.Text = Username
             Try
                 MYconnection.Open()
@@ -53,6 +82,7 @@ Public Class Form3
 
                 If MYreader.Read() Then
                     lblCreateAcc.Text = MYreader("formatted_datetime").ToString()
+                    lblCreateAcc_side_drawer.Text = MYreader("formatted_datetime").ToString()
                 End If
                 MYconnection.Close()
             Catch ex As Exception
@@ -325,7 +355,11 @@ Public Class Form3
             MScommand.Parameters.AddWithValue("@ID", ID)
 
             MScommand.ExecuteNonQuery()
-            MessageBox.Show("Records Deleted Successfully!")
+            Dim result As MsgBoxResult = msgbox_delete_complete.Show()
+            If result = MsgBoxResult.Yes Then
+                msgbox_delete_complete.Show()
+                msgbox_delete.Show()
+            End If
 
             txtfname.Clear()
             txtmname.Clear()
@@ -351,8 +385,11 @@ Public Class Form3
             MYcommand.Parameters.AddWithValue("@ID", ID)
 
             MYcommand.ExecuteNonQuery()
-            MessageBox.Show("Records Deleted Successfully!")
-            msgbox_insert.Text = "HAHAHAHA"
+            Dim result As MsgBoxResult = msgbox_delete_complete.Show()
+            If result = MsgBoxResult.Yes Then
+                msgbox_delete_complete.Show()
+                msgbox_delete.Show()
+            End If
 
             txtfname.Clear()
             txtmname.Clear()
@@ -373,13 +410,66 @@ Public Class Form3
         txtmname.Clear()
         txtlname.Clear()
         course.SelectedItem = Nothing
+        txtSearch.Clear()
     End Sub
 
     Private Sub btn_more_details_Click(sender As Object, e As EventArgs) Handles btn_more_details.Click
-        Panel_side_drawer.Location = New Point(1132, 0)
+        Panel_side_drawer.Location = New Point(1006, 0)
     End Sub
 
     Private Sub btn_side_drawer_return_Click(sender As Object, e As EventArgs) Handles btn_side_drawer_return.Click
-        Panel_side_drawer.Location = New Point(-1132, 0)
+        Panel_side_drawer.Location = New Point(-1006, 0)
     End Sub
+
+    Private Sub btn_MS_truncate_Click(sender As Object, e As EventArgs) Handles btn_MS_truncate.Click
+        Dim result As MsgBoxResult = msgbox_truncate.Show()
+
+        MSconnection = New SqlConnection(MSconnectionString)
+
+        If result = MsgBoxResult.Yes Then
+            Try
+                MSconnection.Open()
+                Dim query As String = "TRUNCATE TABLE tbl_info"
+                Dim MScommand As New SqlCommand(query, MSconnection)
+                MScommand.ExecuteNonQuery()
+                msgbox_truncate_complete.Show()
+                MSloadData()
+                MYloadData()
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                MSconnection.Close()
+            End Try
+
+        ElseIf result = MsgBoxResult.No Then
+
+        End If
+    End Sub
+
+    Private Sub btn_MY_truncate_Click(sender As Object, e As EventArgs) Handles btn_MY_truncate.Click
+        Dim result As MsgBoxResult = msgbox_truncate.Show()
+
+        MYconnection = New MySqlConnection(MYconnectionString)
+
+        If result = MsgBoxResult.Yes Then
+            Try
+                MYconnection.Open()
+                Dim query As String = "TRUNCATE TABLE tbl_info"
+                Dim MYcommand As New MySqlCommand(query, MYconnection)
+                MYcommand.ExecuteNonQuery()
+                msgbox_truncate_complete.Show()
+                MSloadData()
+                MYloadData()
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                MYconnection.Close()
+            End Try
+
+        ElseIf result = MsgBoxResult.No Then
+
+        End If
+    End Sub
+
+
 End Class
