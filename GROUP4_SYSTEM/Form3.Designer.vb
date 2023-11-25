@@ -23,12 +23,12 @@ Partial Class Form3
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel_side_drawer = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel_Account_Info = New Guna.UI2.WinForms.Guna2Panel()
@@ -100,6 +100,8 @@ Partial Class Form3
         Me.msgbox_delete = New Guna.UI2.WinForms.Guna2MessageDialog()
         Me.msgbox_delete_complete = New Guna.UI2.WinForms.Guna2MessageDialog()
         Me.msgbox_truncate_complete = New Guna.UI2.WinForms.Guna2MessageDialog()
+        Me.msgbox_logout_popup1 = New Guna.UI2.WinForms.Guna2MessageDialog()
+        Me.msgbox_logout_done = New Guna.UI2.WinForms.Guna2MessageDialog()
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel_side_drawer.SuspendLayout()
         Me.Panel_Account_Info.SuspendLayout()
@@ -576,29 +578,29 @@ Partial Class Form3
         'GunaDataGridView2
         '
         Me.GunaDataGridView2.AllowUserToAddRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.DarkGray
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
-        Me.GunaDataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+        Me.GunaDataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.GunaDataGridView2.BackgroundColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(18, Byte), Integer))
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GunaDataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(18, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GunaDataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.GunaDataGridView2.ColumnHeadersHeight = 30
         Me.GunaDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.GunaDataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.DarkGray
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.GunaDataGridView2.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GunaDataGridView2.DefaultCellStyle = DataGridViewCellStyle9
         Me.GunaDataGridView2.GridColor = System.Drawing.Color.Black
         Me.GunaDataGridView2.Location = New System.Drawing.Point(901, 160)
         Me.GunaDataGridView2.Name = "GunaDataGridView2"
@@ -658,29 +660,29 @@ Partial Class Form3
         'GunaDataGridView1
         '
         Me.GunaDataGridView1.AllowUserToAddRows = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.DarkGray
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black
-        Me.GunaDataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
+        Me.GunaDataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
         Me.GunaDataGridView1.BackgroundColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(18, Byte), Integer))
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GunaDataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(16, Byte), Integer), CType(CType(18, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GunaDataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.GunaDataGridView1.ColumnHeadersHeight = 30
         Me.GunaDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         Me.GunaDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idno, Me.fullname, Me.clm_course})
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.DarkGray
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.GunaDataGridView1.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.DarkGray
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GunaDataGridView1.DefaultCellStyle = DataGridViewCellStyle12
         Me.GunaDataGridView1.GridColor = System.Drawing.Color.Black
         Me.GunaDataGridView1.Location = New System.Drawing.Point(431, 160)
         Me.GunaDataGridView1.Name = "GunaDataGridView1"
@@ -1145,6 +1147,24 @@ Partial Class Form3
         Me.msgbox_truncate_complete.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark
         Me.msgbox_truncate_complete.Text = "All records has been deleted successfully!"
         '
+        'msgbox_logout_popup1
+        '
+        Me.msgbox_logout_popup1.Buttons = Guna.UI2.WinForms.MessageDialogButtons.YesNo
+        Me.msgbox_logout_popup1.Caption = "LOGOUT"
+        Me.msgbox_logout_popup1.Icon = Guna.UI2.WinForms.MessageDialogIcon.Question
+        Me.msgbox_logout_popup1.Parent = Me
+        Me.msgbox_logout_popup1.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark
+        Me.msgbox_logout_popup1.Text = "Do you want to logout this account?"
+        '
+        'msgbox_logout_done
+        '
+        Me.msgbox_logout_done.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK
+        Me.msgbox_logout_done.Caption = Nothing
+        Me.msgbox_logout_done.Icon = Guna.UI2.WinForms.MessageDialogIcon.None
+        Me.msgbox_logout_done.Parent = Nothing
+        Me.msgbox_logout_done.Style = Guna.UI2.WinForms.MessageDialogStyle.[Default]
+        Me.msgbox_logout_done.Text = Nothing
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1247,4 +1267,6 @@ Partial Class Form3
     Friend WithEvents msgbox_delete As Guna.UI2.WinForms.Guna2MessageDialog
     Friend WithEvents msgbox_delete_complete As Guna.UI2.WinForms.Guna2MessageDialog
     Friend WithEvents msgbox_truncate_complete As Guna.UI2.WinForms.Guna2MessageDialog
+    Friend WithEvents msgbox_logout_popup1 As Guna.UI2.WinForms.Guna2MessageDialog
+    Friend WithEvents msgbox_logout_done As Guna.UI2.WinForms.Guna2MessageDialog
 End Class

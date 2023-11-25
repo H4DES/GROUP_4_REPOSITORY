@@ -125,28 +125,32 @@ Public Class Form3
     Private Sub btnMS_Register_Click(sender As Object, e As EventArgs) Handles btnMS_Register.Click
         MSconnection = New SqlConnection(MSconnectionString)
 
-        Try
-            MSconnection.Open()
-            Dim selectedCourse As String = course.SelectedItem.ToString()
+        If txtfname.Text = Nothing Or txtlname.Text = Nothing Or course.SelectedItem = Nothing Then
+            MessageBox.Show("Empty value in textboxes!")
+        Else
+            Try
+                MSconnection.Open()
+                Dim selectedCourse As String = course.SelectedItem.ToString()
 
-            Dim query As String = "INSERT INTO tbl_info (firstname, middlename, lastname, course) VALUES (@Fname, @Mname, @Lname, @Course)"
-            Dim MScommand As New SqlCommand(query, MSconnection)
+                Dim query As String = "INSERT INTO tbl_info (firstname, middlename, lastname, course) VALUES (@Fname, @Mname, @Lname, @Course)"
+                Dim MScommand As New SqlCommand(query, MSconnection)
 
-            MScommand.Parameters.AddWithValue("@Fname", txtfname.Text)
-            MScommand.Parameters.AddWithValue("@Mname", txtmname.Text)
-            MScommand.Parameters.AddWithValue("@Lname", txtlname.Text)
-            MScommand.Parameters.AddWithValue("@Course", selectedCourse)
+                MScommand.Parameters.AddWithValue("@Fname", txtfname.Text)
+                MScommand.Parameters.AddWithValue("@Mname", txtmname.Text)
+                MScommand.Parameters.AddWithValue("@Lname", txtlname.Text)
+                MScommand.Parameters.AddWithValue("@Course", selectedCourse)
 
-            MScommand.ExecuteNonQuery()
-            msgbox_insert.Show()
-            MYloadData()
-            MSloadData()
+                MScommand.ExecuteNonQuery()
+                msgbox_insert.Show()
+                MYloadData()
+                MSloadData()
 
-        Catch ex As SqlException
-            MessageBox.Show(ex.Message)
-        Finally
-            MSconnection.Dispose()
-        End Try
+            Catch ex As SqlException
+                MessageBox.Show(ex.Message)
+            Finally
+                MSconnection.Dispose()
+            End Try
+        End If
     End Sub
 
     Private Sub btnMY_Register_Click(sender As Object, e As EventArgs) Handles btnMY_Register.Click
@@ -354,11 +358,10 @@ Public Class Form3
             Dim MScommand As New SqlCommand(query, MSconnection)
             MScommand.Parameters.AddWithValue("@ID", ID)
 
-            MScommand.ExecuteNonQuery()
-            Dim result As MsgBoxResult = msgbox_delete_complete.Show()
+            Dim result As MsgBoxResult = msgbox_delete.Show()
             If result = MsgBoxResult.Yes Then
                 msgbox_delete_complete.Show()
-                msgbox_delete.Show()
+                MScommand.ExecuteNonQuery()
             End If
 
             txtfname.Clear()
@@ -384,11 +387,12 @@ Public Class Form3
             Dim MYcommand As New MySqlCommand(query, MYconnection)
             MYcommand.Parameters.AddWithValue("@ID", ID)
 
-            MYcommand.ExecuteNonQuery()
-            Dim result As MsgBoxResult = msgbox_delete_complete.Show()
+
+
+            Dim result As MsgBoxResult = msgbox_delete.Show()
             If result = MsgBoxResult.Yes Then
                 msgbox_delete_complete.Show()
-                msgbox_delete.Show()
+                MYcommand.ExecuteNonQuery()
             End If
 
             txtfname.Clear()
@@ -471,5 +475,16 @@ Public Class Form3
         End If
     End Sub
 
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Dim result As MsgBoxResult = msgbox_logout_popup1.Show()
+        If result = MsgBoxResult.Yes Then
+            Me.Hide()
+            Form2.Show()
+        End If
 
+    End Sub
+
+    Private Sub lblLogout_Click(sender As Object, e As EventArgs) Handles lblLogout.Click
+
+    End Sub
 End Class

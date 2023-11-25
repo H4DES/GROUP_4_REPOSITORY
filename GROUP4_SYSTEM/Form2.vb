@@ -158,6 +158,9 @@ Public Class Form2
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Panel_Signup.Hide()
+        ' Attach the common event handler to the KeyDown event of the textboxes
+        AddHandler txtUsername.KeyDown, AddressOf TextBoxes_KeyDown
+        AddHandler txtPassword.KeyDown, AddressOf TextBoxes_KeyDown
     End Sub
 
     Private Sub rdo_MS_signup_CheckedChanged(sender As Object, e As EventArgs) Handles rdo_MS_signup.CheckedChanged
@@ -175,6 +178,15 @@ Public Class Form2
     Private Sub rdo_MY_login_CheckedChanged(sender As Object, e As EventArgs) Handles rdo_MY_login.CheckedChanged
         signin = "MYSQL"
     End Sub
+
+    Private Sub TextBoxes_KeyDown(sender As Object, e As KeyEventArgs) Handles txtUsername.KeyDown, txtPassword.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ' Call the login button click event
+            btnSignin.PerformClick()
+        End If
+    End Sub
+
+
 
 
     'Private Sub Form2(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
