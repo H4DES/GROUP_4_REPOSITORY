@@ -200,5 +200,20 @@
   <ItemGroup>
     <None Include="Resources\logout.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-registration-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-96.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

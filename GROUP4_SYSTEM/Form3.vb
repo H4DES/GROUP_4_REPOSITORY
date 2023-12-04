@@ -1,7 +1,60 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.IO
+Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class Form3
+    Dim dr As MySqlDataAdapter
+    Dim a As OpenFileDialog = New OpenFileDialog
     Dim ID As String = ""
+
+    Public Sub showImage()
+
+        If signin = "MSSQL" Then
+            MSconnection = New SqlConnection(MSconnectionString)
+
+            Try
+                MSconnection.Open()
+
+                Dim MScommand As New SqlCommand("SELECT profile_image FROM tbl_admin WHERE admin_id = @ID", MSconnection)
+                MScommand.Parameters.AddWithValue("@ID", adminID)
+                Dim imageData As Byte() = DirectCast(MScommand.ExecuteScalar(), Byte())
+
+                If imageData IsNot Nothing Then
+                    Using ms As New MemoryStream(imageData)
+                        PictureBox1.Image = Image.FromStream(ms)
+                    End Using
+                Else
+                    MsgBox("Not Found!")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MSconnection.Close()
+            End Try
+        ElseIf signin = "MYSQL" Then
+            MYconnection = New MySqlConnection(MYconnectionString)
+
+            Try
+                MYconnection.Open()
+
+                Dim MYcommand As New MySqlCommand("SELECT profile_image FROM tbl_admin WHERE admin_id = @ID", MYconnection)
+                MYcommand.Parameters.AddWithValue("@ID", adminID)
+                Dim imageData As Byte() = DirectCast(MYcommand.ExecuteScalar(), Byte())
+
+                If imageData IsNot Nothing Then
+                    Using ms As New MemoryStream(imageData)
+                        PictureBox1.Image = Image.FromStream(ms)
+                    End Using
+                Else
+                    MsgBox("Not Found!")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MYconnection.Close()
+            End Try
+        End If
+
+    End Sub
 
     Public Sub adminFullname()
         If signin = "MSSQL" Then
@@ -27,11 +80,31 @@ Public Class Form3
         End If
     End Sub
 
+    Public Sub MYcheckImage()
+        MYconnection = New MySqlConnection(MYconnectionString)
+        Try
+            MYconnection.Open()
+
+            Dim MYcommand As New MySqlCommand("SELECT COUNT(*) FROM tbl_admin WHERE admin_id = @ID AND profile_image IS NOT NULL", MYconnection)
+            MYcommand.Parameters.AddWithValue("@ID", adminID)
+            Dim count As Integer = Convert.ToInt32(MYcommand.ExecuteScalar())
+
+            If count > 0 Then
+                showImage()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            MYconnection.Close()
+        End Try
+    End Sub
+
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MYloadData()
         MSloadData()
         adminFullname()
-
+        MYcheckImage()
+        btn_save_photo.Enabled = False
         'Dim result As MsgBoxResult = msgbox_insert.Show()
 
         'If result = MsgBoxResult.Cancel Then
@@ -58,7 +131,7 @@ Public Class Form3
                     lblCreateAcc.Text = MSreader("formatted_datetime").ToString()
                     lblCreateAcc_side_drawer.Text = MSreader("formatted_datetime").ToString()
                 End If
-                MessageBox.Show(MSreader("formatted_datetime").ToString())
+
                 MSconnection.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -480,11 +553,106 @@ Public Class Form3
         If result = MsgBoxResult.Yes Then
             Me.Hide()
             Form2.Show()
+            open = False
+            Me.Close()
         End If
 
     End Sub
 
     Private Sub lblLogout_Click(sender As Object, e As EventArgs) Handles lblLogout.Click
+        Dim result As MsgBoxResult = msgbox_logout_popup1.Show()
+        If result = MsgBoxResult.Yes Then
+            Me.Hide()
+            Form2.Show()
+            open = False
+            Me.Close()
+        End If
+    End Sub
 
+    Private Sub btn_change_photo_Click(sender As Object, e As EventArgs) Handles btn_change_photo.Click
+        Try
+            a.Filter = "JPEG(*.jpg;*.jpeg|*.jpg|PNG(*.png)|*.png)"
+            If a.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                PictureBox1.Image = Image.FromFile(a.FileName)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        btn_save_photo.Enabled = True
+
+    End Sub
+
+    Private Sub btn_save_photo_Click(sender As Object, e As EventArgs) Handles btn_save_photo.Click
+        Dim mstream As New System.IO.MemoryStream()
+        PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+        Dim Image() As Byte = mstream.GetBuffer
+        mstream.Close()
+
+        If signin = "MSSQL" Then
+            MSconnection = New SqlConnection(MSconnectionString)
+            Try
+                MSconnection.Open()
+
+                Dim MScommand As New SqlCommand("SELECT COUNT(*) FROM tbl_admin WHERE admin_id = @ID AND profile_image IS NOT NULL", MSconnection)
+                MScommand.Parameters.AddWithValue("@ID", adminID)
+                Dim count As Integer = Convert.ToInt32(MScommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MScommand = New SqlCommand("UPDATE tbl_admin SET profile_image = @ImageData WHERE admin_id = @ID", MSconnection)
+                    MScommand.Parameters.AddWithValue("@ID", adminID)
+                Else
+                    MScommand = New SqlCommand("UPDATE tbl_admin SET profile_image = @ImageData WHERE admin_id = @ID", MSconnection)
+                    MScommand.Parameters.AddWithValue("@ID", adminID)
+                End If
+
+                MScommand.Parameters.AddWithValue("@ImageData", Image)
+
+                MScommand.ExecuteNonQuery()
+                MsgBox("Success", MsgBoxStyle.Information, "Success!")
+                showImage()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MSconnection.Close()
+            End Try
+            btn_save_photo.Enabled = False
+
+        ElseIf signin = "MYSQL" Then
+            MYconnection = New MySqlConnection(MYconnectionString)
+            Try
+                MYconnection.Open()
+
+                Dim MYcommand As New MySqlCommand("SELECT COUNT(*) FROM tbl_admin WHERE admin_id = @ID AND profile_image IS NOT NULL", MYconnection)
+                MYcommand.Parameters.AddWithValue("@ID", adminID)
+                Dim count As Integer = Convert.ToInt32(MYcommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MYcommand = New MySqlCommand("UPDATE tbl_admin SET profile_image = @ImageData WHERE admin_id = @ID", MYconnection)
+                    MYcommand.Parameters.AddWithValue("@ID", adminID)
+                Else
+                    MYcommand = New MySqlCommand("UPDATE tbl_admin SET profile_image = @ImageData WHERE admin_id = @ID", MYconnection)
+                    MYcommand.Parameters.AddWithValue("@ID", adminID)
+                End If
+
+                MYcommand.Parameters.AddWithValue("@ImageData", Image)
+
+                MYcommand.ExecuteNonQuery()
+                MsgBox("Success", MsgBoxStyle.Information, "Success!")
+                showImage()
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            Finally
+                MYconnection.Close()
+            End Try
+            btn_save_photo.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btn_hover_profile1(sender As Object, e As EventArgs) Handles btn_hover_profile.CheckedChanged
+        If btn_hover_profile.Checked Then
+            Panel_change_photo.Location = New Point(41, 210)
+        Else
+            Panel_change_photo.Location = New Point(41, -210)
+        End If
     End Sub
 End Class

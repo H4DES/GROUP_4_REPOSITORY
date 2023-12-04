@@ -47,7 +47,22 @@ GROUP4_SYSTEM
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:GROUP4_SYSTEM.My.Resources.Resources.icons8_registration_96">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP4_SYSTEM.My.Resources.Resources.icons8_save_100">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:GROUP4_SYSTEM.My.Resources.Resources.icons8_warning_100">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP4_SYSTEM.My.Resources.Resources.lock_96">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -88,6 +103,16 @@ GROUP4_SYSTEM
 </summary>
 </member>
 <member name="P:GROUP4_SYSTEM.My.Resources.Resources.Trash_Bin_Shape_Adjust">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP4_SYSTEM.My.Resources.Resources.user">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP4_SYSTEM.My.Resources.Resources.user__1_">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

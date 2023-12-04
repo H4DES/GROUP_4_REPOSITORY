@@ -4,9 +4,15 @@ Public Class Form2
 
     Dim signup As String
 
+
     Private Sub btnToSignin_Click(sender As Object, e As EventArgs) Handles btnToSignin.Click
         Panel_login.Show()
         Panel_Signup.Hide()
+        txtCreateFname.Clear()
+        txtCreateMname.Clear()
+        txtCreateLname.Clear()
+        txtCreateUser.Clear()
+        txtCreatePass.Clear()
     End Sub
 
     Private Sub btnSignin_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
@@ -33,13 +39,12 @@ Public Class Form2
 
                     End If
                     If txtUsername.Text = "" And txtPassword.Text = "" Then
-                        MessageBox.Show("Fill Up!")
+                        MessageBox.Show("Please fill up!")
                     Else
                         If MSreader.HasRows Then
                             msgbox_signin.Show()
                             Form3.Show()
                             Me.Hide()
-                            txtUsername.Clear()
                             txtPassword.Clear()
                         Else
                             MessageBox.Show("Incorrect Username or Password!")
@@ -53,6 +58,7 @@ Public Class Form2
                     MSconnection.Dispose()
                 End Try
             End Using
+
         ElseIf signin = "MYSQL" Then
             Using MYconnection As New MySqlConnection(MYconnectionString)
                 Try
@@ -78,8 +84,6 @@ Public Class Form2
                             msgbox_signin.Show()
                             Form3.Show()
                             Me.Hide()
-
-                            txtUsername.Clear()
                             txtPassword.Clear()
                         Else
                             MessageBox.Show("Error!")
@@ -100,6 +104,8 @@ Public Class Form2
     Private Sub btnToCreateAcc_Click(sender As Object, e As EventArgs) Handles btnToCreateAcc.Click
         Panel_login.Hide()
         Panel_Signup.Show()
+        txtUsername.Clear()
+        txtPassword.Clear()
     End Sub
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
@@ -122,7 +128,11 @@ Public Class Form2
 
                 MScommand.ExecuteNonQuery()
                 msgbox_signup.Show()
-
+                txtCreateFname.Clear()
+                txtCreateMname.Clear()
+                txtCreateLname.Clear()
+                txtCreateUser.Clear()
+                txtCreatePass.Clear()
             Catch ex As SqlException
                 MessageBox.Show(ex.Message)
             Finally
@@ -145,7 +155,11 @@ Public Class Form2
 
                 MYcommand.ExecuteNonQuery()
                 msgbox_signup.Show()
-
+                txtCreateFname.Clear()
+                txtCreateMname.Clear()
+                txtCreateLname.Clear()
+                txtCreateUser.Clear()
+                txtCreatePass.Clear()
             Catch ex As MySqlException
                 MessageBox.Show(ex.Message)
             Finally
@@ -181,8 +195,10 @@ Public Class Form2
 
     Private Sub TextBoxes_KeyDown(sender As Object, e As KeyEventArgs) Handles txtUsername.KeyDown, txtPassword.KeyDown
         If e.KeyCode = Keys.Enter Then
-            ' Call the login button click event
-            btnSignin.PerformClick()
+            If open = False Then
+                btnSignin.PerformClick()
+                open = True
+            End If
         End If
     End Sub
 

@@ -32,6 +32,11 @@ Partial Class Form3
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel_side_drawer = New Guna.UI2.WinForms.Guna2Panel()
         Me.Panel_Account_Info = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Panel_change_photo = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btn_save_photo = New Guna.UI2.WinForms.Guna2Button()
+        Me.btn_change_photo = New Guna.UI2.WinForms.Guna2Button()
+        Me.btn_hover_profile = New Guna.UI2.WinForms.Guna2CircleButton()
+        Me.PictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Guna2Shapes1 = New Guna.UI2.WinForms.Guna2Shapes()
         Me.lblLogout = New System.Windows.Forms.Label()
@@ -45,8 +50,6 @@ Partial Class Form3
         Me.lblFullname = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.lblUser_side_drawer = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_side_drawer_return = New Guna.UI2.WinForms.Guna2Button()
         Me.btn_more_details = New Guna.UI2.WinForms.Guna2Button()
@@ -105,6 +108,8 @@ Partial Class Form3
         Me.Guna2Panel1.SuspendLayout()
         Me.Panel_side_drawer.SuspendLayout()
         Me.Panel_Account_Info.SuspendLayout()
+        Me.Panel_change_photo.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.Panel_MSSQL.SuspendLayout()
         Me.Panel_Header.SuspendLayout()
@@ -147,7 +152,7 @@ Partial Class Form3
         Me.Panel_side_drawer.FillColor = System.Drawing.Color.DimGray
         Me.Panel_side_drawer.Location = New System.Drawing.Point(-1006, 0)
         Me.Panel_side_drawer.Name = "Panel_side_drawer"
-        Me.Panel_side_drawer.Size = New System.Drawing.Size(361, 357)
+        Me.Panel_side_drawer.Size = New System.Drawing.Size(361, 619)
         Me.Panel_side_drawer.TabIndex = 16
         '
         'Panel_Account_Info
@@ -155,6 +160,9 @@ Partial Class Form3
         Me.Panel_Account_Info.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel_Account_Info.Controls.Add(Me.Panel_change_photo)
+        Me.Panel_Account_Info.Controls.Add(Me.btn_hover_profile)
+        Me.Panel_Account_Info.Controls.Add(Me.PictureBox1)
         Me.Panel_Account_Info.Controls.Add(Me.Label13)
         Me.Panel_Account_Info.Controls.Add(Me.Guna2Shapes1)
         Me.Panel_Account_Info.Controls.Add(Me.lblLogout)
@@ -168,13 +176,94 @@ Partial Class Form3
         Me.Panel_Account_Info.Controls.Add(Me.lblFullname)
         Me.Panel_Account_Info.Controls.Add(Me.Label10)
         Me.Panel_Account_Info.Controls.Add(Me.lblUser_side_drawer)
-        Me.Panel_Account_Info.Controls.Add(Me.Label9)
-        Me.Panel_Account_Info.Controls.Add(Me.Label4)
         Me.Panel_Account_Info.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.Panel_Account_Info.Location = New System.Drawing.Point(0, 40)
         Me.Panel_Account_Info.Name = "Panel_Account_Info"
-        Me.Panel_Account_Info.Size = New System.Drawing.Size(361, 317)
+        Me.Panel_Account_Info.Size = New System.Drawing.Size(361, 579)
         Me.Panel_Account_Info.TabIndex = 13
+        '
+        'Panel_change_photo
+        '
+        Me.Panel_change_photo.BackColor = System.Drawing.Color.Transparent
+        Me.Panel_change_photo.BorderRadius = 10
+        Me.Panel_change_photo.Controls.Add(Me.btn_save_photo)
+        Me.Panel_change_photo.Controls.Add(Me.btn_change_photo)
+        Me.Panel_change_photo.FillColor = System.Drawing.Color.Black
+        Me.Panel_change_photo.Location = New System.Drawing.Point(41, -210)
+        Me.Panel_change_photo.Name = "Panel_change_photo"
+        Me.Panel_change_photo.Size = New System.Drawing.Size(284, 47)
+        Me.Panel_change_photo.TabIndex = 30
+        '
+        'btn_save_photo
+        '
+        Me.btn_save_photo.BorderRadius = 10
+        Me.btn_save_photo.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.btn_save_photo.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_save_photo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_save_photo.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_save_photo.DisabledState.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_save_photo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_save_photo.DisabledState.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.lock_96
+        Me.btn_save_photo.FillColor = System.Drawing.Color.Black
+        Me.btn_save_photo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btn_save_photo.ForeColor = System.Drawing.Color.White
+        Me.btn_save_photo.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.icons8_save_100
+        Me.btn_save_photo.ImageSize = New System.Drawing.Size(19, 19)
+        Me.btn_save_photo.Location = New System.Drawing.Point(146, 3)
+        Me.btn_save_photo.Name = "btn_save_photo"
+        Me.btn_save_photo.Size = New System.Drawing.Size(135, 41)
+        Me.btn_save_photo.TabIndex = 1
+        Me.btn_save_photo.Text = "Save Photo"
+        '
+        'btn_change_photo
+        '
+        Me.btn_change_photo.BorderRadius = 10
+        Me.btn_change_photo.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_change_photo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_change_photo.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_change_photo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_change_photo.FillColor = System.Drawing.Color.Black
+        Me.btn_change_photo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.btn_change_photo.ForeColor = System.Drawing.Color.White
+        Me.btn_change_photo.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.icons8_registration_96
+        Me.btn_change_photo.Location = New System.Drawing.Point(3, 3)
+        Me.btn_change_photo.Name = "btn_change_photo"
+        Me.btn_change_photo.Size = New System.Drawing.Size(137, 41)
+        Me.btn_change_photo.TabIndex = 0
+        Me.btn_change_photo.Text = "Change Photo"
+        '
+        'btn_hover_profile
+        '
+        Me.btn_hover_profile.BackColor = System.Drawing.Color.Transparent
+        Me.btn_hover_profile.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
+        Me.btn_hover_profile.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_hover_profile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_hover_profile.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_hover_profile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_hover_profile.FillColor = System.Drawing.Color.Transparent
+        Me.btn_hover_profile.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btn_hover_profile.ForeColor = System.Drawing.Color.White
+        Me.btn_hover_profile.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.btn_hover_profile.Location = New System.Drawing.Point(87, 20)
+        Me.btn_hover_profile.Name = "btn_hover_profile"
+        Me.btn_hover_profile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.btn_hover_profile.Size = New System.Drawing.Size(184, 184)
+        Me.btn_hover_profile.TabIndex = 29
+        Me.btn_hover_profile.UseTransparentBackground = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.FillColor = System.Drawing.Color.Silver
+        Me.PictureBox1.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.user
+        Me.PictureBox1.ImageRotate = 0!
+        Me.PictureBox1.Location = New System.Drawing.Point(87, 20)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.PictureBox1.Size = New System.Drawing.Size(184, 184)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 28
+        Me.PictureBox1.TabStop = False
         '
         'Label13
         '
@@ -182,7 +271,7 @@ Partial Class Form3
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Segoe UI Semilight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label13.Location = New System.Drawing.Point(206, 176)
+        Me.Label13.Location = New System.Drawing.Point(205, 421)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(152, 13)
         Me.Label13.TabIndex = 27
@@ -195,7 +284,7 @@ Partial Class Form3
         Me.Guna2Shapes1.BorderThickness = 1
         Me.Guna2Shapes1.FillColor = System.Drawing.Color.Black
         Me.Guna2Shapes1.LineThickness = 3
-        Me.Guna2Shapes1.Location = New System.Drawing.Point(0, 258)
+        Me.Guna2Shapes1.Location = New System.Drawing.Point(-1, 503)
         Me.Guna2Shapes1.Name = "Guna2Shapes1"
         Me.Guna2Shapes1.PolygonSkip = 1
         Me.Guna2Shapes1.Rotate = 0!
@@ -211,7 +300,7 @@ Partial Class Form3
         Me.lblLogout.BackColor = System.Drawing.Color.Transparent
         Me.lblLogout.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLogout.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblLogout.Location = New System.Drawing.Point(166, 282)
+        Me.lblLogout.Location = New System.Drawing.Point(165, 527)
         Me.lblLogout.Name = "lblLogout"
         Me.lblLogout.Size = New System.Drawing.Size(65, 20)
         Me.lblLogout.TabIndex = 25
@@ -230,7 +319,7 @@ Partial Class Form3
         Me.btnLogout.HoverState.FillColor = System.Drawing.Color.Gray
         Me.btnLogout.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.logout
         Me.btnLogout.ImageOffset = New System.Drawing.Point(1, 2)
-        Me.btnLogout.Location = New System.Drawing.Point(128, 275)
+        Me.btnLogout.Location = New System.Drawing.Point(127, 520)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.btnLogout.Size = New System.Drawing.Size(36, 36)
@@ -249,7 +338,7 @@ Partial Class Form3
         Me.btn_MY_truncate.HoverState.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.trash_bin__1_
         Me.btn_MY_truncate.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.Trash_Bin_Shape_Adjust
         Me.btn_MY_truncate.ImageSize = New System.Drawing.Size(50, 50)
-        Me.btn_MY_truncate.Location = New System.Drawing.Point(247, 192)
+        Me.btn_MY_truncate.Location = New System.Drawing.Point(246, 437)
         Me.btn_MY_truncate.Name = "btn_MY_truncate"
         Me.btn_MY_truncate.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.btn_MY_truncate.Size = New System.Drawing.Size(65, 60)
@@ -268,7 +357,7 @@ Partial Class Form3
         Me.btn_MS_truncate.HoverState.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.trash_bin__1_
         Me.btn_MS_truncate.Image = Global.GROUP4_SYSTEM.My.Resources.Resources.Trash_Bin_Shape_Adjust
         Me.btn_MS_truncate.ImageSize = New System.Drawing.Size(50, 50)
-        Me.btn_MS_truncate.Location = New System.Drawing.Point(53, 192)
+        Me.btn_MS_truncate.Location = New System.Drawing.Point(52, 437)
         Me.btn_MS_truncate.Name = "btn_MS_truncate"
         Me.btn_MS_truncate.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.btn_MS_truncate.Size = New System.Drawing.Size(65, 60)
@@ -280,7 +369,7 @@ Partial Class Form3
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semilight", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label12.Location = New System.Drawing.Point(11, 176)
+        Me.Label12.Location = New System.Drawing.Point(10, 421)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(152, 13)
         Me.Label12.TabIndex = 20
@@ -292,7 +381,7 @@ Partial Class Form3
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.Red
-        Me.Label11.Location = New System.Drawing.Point(126, 141)
+        Me.Label11.Location = New System.Drawing.Point(125, 386)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(123, 21)
         Me.Label11.TabIndex = 19
@@ -304,7 +393,7 @@ Partial Class Form3
         Me.lblCreateAcc_side_drawer.BackColor = System.Drawing.Color.Transparent
         Me.lblCreateAcc_side_drawer.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCreateAcc_side_drawer.ForeColor = System.Drawing.Color.Aqua
-        Me.lblCreateAcc_side_drawer.Location = New System.Drawing.Point(142, 20)
+        Me.lblCreateAcc_side_drawer.Location = New System.Drawing.Point(137, 328)
         Me.lblCreateAcc_side_drawer.Name = "lblCreateAcc_side_drawer"
         Me.lblCreateAcc_side_drawer.Size = New System.Drawing.Size(44, 20)
         Me.lblCreateAcc_side_drawer.TabIndex = 18
@@ -316,7 +405,7 @@ Partial Class Form3
         Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label14.Location = New System.Drawing.Point(12, 20)
+        Me.Label14.Location = New System.Drawing.Point(7, 328)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(122, 20)
         Me.Label14.TabIndex = 17
@@ -328,7 +417,7 @@ Partial Class Form3
         Me.lblFullname.BackColor = System.Drawing.Color.Transparent
         Me.lblFullname.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFullname.ForeColor = System.Drawing.Color.Aqua
-        Me.lblFullname.Location = New System.Drawing.Point(142, 80)
+        Me.lblFullname.Location = New System.Drawing.Point(137, 299)
         Me.lblFullname.Name = "lblFullname"
         Me.lblFullname.Size = New System.Drawing.Size(44, 20)
         Me.lblFullname.TabIndex = 14
@@ -340,7 +429,7 @@ Partial Class Form3
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label10.Location = New System.Drawing.Point(12, 80)
+        Me.Label10.Location = New System.Drawing.Point(7, 299)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(120, 20)
         Me.Label10.TabIndex = 13
@@ -350,37 +439,13 @@ Partial Class Form3
         '
         Me.lblUser_side_drawer.AutoSize = True
         Me.lblUser_side_drawer.BackColor = System.Drawing.Color.Transparent
-        Me.lblUser_side_drawer.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser_side_drawer.ForeColor = System.Drawing.Color.Aqua
-        Me.lblUser_side_drawer.Location = New System.Drawing.Point(141, 51)
+        Me.lblUser_side_drawer.Font = New System.Drawing.Font("Sitka Small", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser_side_drawer.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblUser_side_drawer.Location = New System.Drawing.Point(133, 221)
         Me.lblUser_side_drawer.Name = "lblUser_side_drawer"
-        Me.lblUser_side_drawer.Size = New System.Drawing.Size(44, 20)
+        Me.lblUser_side_drawer.Size = New System.Drawing.Size(106, 40)
         Me.lblUser_side_drawer.TabIndex = 12
-        Me.lblUser_side_drawer.Text = "NULL"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label9.Location = New System.Drawing.Point(12, 51)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(78, 20)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "Username:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label4.Location = New System.Drawing.Point(12, 50)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 20)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Username:"
+        Me.lblUser_side_drawer.Text = "Hades"
         '
         'Label1
         '
@@ -1179,6 +1244,8 @@ Partial Class Form3
         Me.Panel_side_drawer.PerformLayout()
         Me.Panel_Account_Info.ResumeLayout(False)
         Me.Panel_Account_Info.PerformLayout()
+        Me.Panel_change_photo.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
         Me.Panel_MSSQL.ResumeLayout(False)
@@ -1248,10 +1315,8 @@ Partial Class Form3
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel_Account_Info As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Elipse9 As Guna.UI2.WinForms.Guna2Elipse
-    Friend WithEvents Label4 As Label
     Friend WithEvents lblUser_side_drawer As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
     Friend WithEvents lblFullname As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents lblCreateAcc_side_drawer As Label
@@ -1269,4 +1334,9 @@ Partial Class Form3
     Friend WithEvents msgbox_truncate_complete As Guna.UI2.WinForms.Guna2MessageDialog
     Friend WithEvents msgbox_logout_popup1 As Guna.UI2.WinForms.Guna2MessageDialog
     Friend WithEvents msgbox_logout_done As Guna.UI2.WinForms.Guna2MessageDialog
+    Friend WithEvents PictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
+    Friend WithEvents btn_hover_profile As Guna.UI2.WinForms.Guna2CircleButton
+    Friend WithEvents Panel_change_photo As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents btn_change_photo As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btn_save_photo As Guna.UI2.WinForms.Guna2Button
 End Class
