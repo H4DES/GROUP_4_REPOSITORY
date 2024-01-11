@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MDF_login.exe" version="1.0.0.0" publicKeyToken="b81b88078f2bb0b4" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MDF_login" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MDF_login.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Guna.UI2.dll" size="2153864">
+      <assemblyIdentity name="Guna.UI2" version="2.0.4.6" publicKeyToken="8B9D14AA5142E261" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>5ljopWFiRdvmVeGUtZ8btwSq6vvQkl1u675wVVpjjN0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MDF_login.exe" size="50600">
+      <assemblyIdentity name="MDF_login" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>TBd+ft51JF2JSUjfc97n61YSIaRi5wx38wZhjWlnjnA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="login_db.mdf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>uEdv621bxtq9QJFGsQtlxhFPJ624Nfc5CO3r6PwGcwA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="login_db_log.ldf" size="8388608" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TRvAasn2Hngqz6EkOh9pJUhcZ84yZwxv85aEHrClsc0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MDF_login.exe.config" size="628">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fyN2P/PvpOVK2W2cdQReBaeyUQ1568N6zkFC+M8hYiw=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=SUKUNA\berna" issuerKeyHash="3af118efef2b5da12c9d27b63d83f88e9960bb23" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>j8iap+cXHvVfcxQKQaZlx5pAZVg7g474dlkqO6yhhgg=</DigestValue></Reference></SignedInfo><SignatureValue>VFC9d2rmA9Ub6YfYzeks8JcicwWPxgCFlZtoDCHvZSORX93mX1fW2sYUWp3FDEvNm8v3xu1SE4Vcv1hWPU/ypFBu57PswfWi6AZk6UJhboaEOwQ4OFxurpQG6TTVmP8QOJyt99SwGLxMyQoOHCvUT6Av6RuvJySo+xU1bH5AS6A=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>414BaZwEy9jzCqeN2cn2gHCLGY7WCNSqgnRouLToBzJ6wwDFHremnjlL2G0jfRr7w0lNyGcUSemb6ZZV+SuXiSD/T8Eg+CpkcjbD6dszEUJS6wwDimJNus2t1hLDsdT3dQCzGuEU3r8P+c4Zq1lAUWP/LL8+YPihwqovh0UPy6E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="0886a1ac3b2a5976f88e833b5865409ac765a6410a14735ff51e17e7a79ac88f" Description="" Url=""><as:assemblyIdentity name="MDF_login.exe" version="1.0.0.0" publicKeyToken="b81b88078f2bb0b4" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=SUKUNA\berna</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>rOdOg3y89FusTZywR9V92AFZ5B4mMq8e11DYFhrsz1c=</DigestValue></Reference></SignedInfo><SignatureValue>ZYUKu+h7ePHNKEc4A6NYJJzyZ8rd/IzDEggQSe2DTMIIGgT537hHmCQoCYHiybmheGG+rSyCiiikeQV6xjGhGJJralhDbeReUUp/XE6Au6WmgmFLKAflcT3cZMY328mgPpovhqB7g6e5cOIsxQbGO6+wYrTxjGMpmn8d1qxMjJE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>414BaZwEy9jzCqeN2cn2gHCLGY7WCNSqgnRouLToBzJ6wwDFHremnjlL2G0jfRr7w0lNyGcUSemb6ZZV+SuXiSD/T8Eg+CpkcjbD6dszEUJS6wwDimJNus2t1hLDsdT3dQCzGuEU3r8P+c4Zq1lAUWP/LL8+YPihwqovh0UPy6E=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQVJV2Tws2zpZD1xNxpCg1dTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAUwBVAEsAVQBOAEEAXABiAGUAcgBuAGEwHhcNMjQwMTAzMDMzNTI2WhcNMjUwMTAyMDkzNTI2WjAjMSEwHwYDVQQDHhgAUwBVAEsAVQBOAEEAXABiAGUAcgBuAGEwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAONeAWmcBMvY8wqnjdnJ9oBwixmO1gjUqoJ0aLi06AcyesMAxR63pp45S9htI30a+8NJTchnFEnpm+mWVfkrl4kg/0/BIPgqZHI2w+nbMxFCUusMA4piTbrNrdYSw7HU93UAsxrhFN6/D/nOGatZQFFj/yy/PmD4ocKqL4dFD8uhAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAErrDokYSFMTP6m3g7eafPhqB1W1WC8PoQsBkO1+hYGTLQsMhpY9bs/tNKt8ITMone6EN/Tog0R85ZZjTm58jErEhvi/BQ0YHeJgJ9B+2VGBr/J82TZFpuAcMyFxQpAOVt9L18KX7vGi+s79MjSo3V5vUUeBKu04feOF5NidsmIY=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
